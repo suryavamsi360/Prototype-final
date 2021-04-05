@@ -1,11 +1,13 @@
+//IMPORTING MODULES
 const { request, response } = require('express');
 const Joi = require("joi");
 const express = require('express');  
+//Strarting the express server and setting up the port
 const app=express();
 
 app.use(express.json());
 const port=process.env.PORT||3000
-
+//Creating a temporary data to work with
 const courses=[
     {   id:1,name:'Machine Learning/AI'},
     {   id:2,name:'Computer Networking'},
@@ -33,7 +35,7 @@ app.get('/api/courses',(request,response)=>{
     response.send(courses);
 });
 
-//GET a specific course
+//GET a specific course based on id
 app.get('/api/courses/:id',(request,response)=>{
     const course=courses.find(c=>c.id===parseInt(request.params.id));
     if(!course) return response.status(404).send("The course is not available");
@@ -55,24 +57,24 @@ app.post('/api/courses',(request,response)=>{
 
 });
 
-//UPDATE a course
+//UPDATE a course based on id
 app.put('/api/courses/:id',(request,response)=>{
     //NOT FOUND 404
     const course=courses.find(c=>c.id===parseInt(request.params.id));
     if(!course) return response.status(404).send("The course is not available");
-    //VALIDATE
+    //VALIDATE the entry
     const {error} =validateCourse(request.body);
     if(error) return response.status(400).send(error.details[0].message)
     
-    //Everything is fine, so update
+    //If Everything is fine, update the value
     course.name=request.body.name;
     response.send(course)
 
 });
 
-//DELETE
+//DELETE based on id
 app.delete('/api/courses/:id',(request,response)=>{
-    //If not exits 404 not found
+    //If not found with the specified id, 404 not found
     const course=courses.find(c=>c.id===parseInt(request.params.id));
     if(!course) return response.status(404).send("The course is not available");
      
@@ -83,7 +85,7 @@ app.delete('/api/courses/:id',(request,response)=>{
 });
 
 
-
+//Validation to make sure user entered a valid course name
 function validateCourse(course){
     const schema ={
         name:Joi.string().min(3).required()
