@@ -1,7 +1,6 @@
 {
   "name": "expressdemo",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +11,15 @@
   "dependencies": {
     "express": "^4.17.1",
     "joi": "^13.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suryavamsi360/Prototype-final.git"
+  },
+  "bugs": {
+    "url": "https://github.com/suryavamsi360/Prototype-final/issues"
+  },
+  "homepage": "https://github.com/suryavamsi360/Prototype-final#readme",
+  "description": ""
 }

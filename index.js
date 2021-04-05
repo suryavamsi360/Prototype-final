@@ -4,7 +4,7 @@ const express = require('express');
 const app=express();
 
 app.use(express.json());
-const port=5000
+const port=process.env.PORT||3000
 
 const courses=[
     {   id:1,name:'course1'},
