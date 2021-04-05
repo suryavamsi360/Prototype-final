@@ -7,9 +7,16 @@ app.use(express.json());
 const port=process.env.PORT||3000
 
 const courses=[
-    {   id:1,name:'course1'},
-    {   id:2,name:'course2'},
-    {   id:3,name:'course3'}
+    {   id:1,name:'Machine Learning/AI'},
+    {   id:2,name:'Computer Networking'},
+    {   id:3,name:'OS'},
+    {   id:4,name:'Data Sciences'},
+    {   id:5,name:'Software testing'},
+    {   id:6,name:'Data Structure and Algorithms'},
+    {   id:7,name:'JAVA'},
+    {   id:8,name:'DBMS'},
+    {   id:9,name:'React JS/Web Technologies'},
+    {   id:10,name:'Software Design'}
 ]
 app.listen(port,()=>{
     console.log(`Listening on port ${port}`)
