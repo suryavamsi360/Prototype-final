@@ -1,5 +1,6 @@
 //IMPORTING MODULES
 const { request, response } = require('express');
+const path =require ('path');
 const Joi = require("joi");
 const express = require('express');  
 //Strarting the express server and setting up the port
@@ -27,7 +28,7 @@ app.listen(port,()=>{
 
 //GET default page
 app.get('/',(request,response)=>{
-    response.send("Hello World");
+    response.sendFile("./homepage.html", { root: __dirname });
 });
 
 //GET all courses
